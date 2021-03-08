@@ -1,4 +1,4 @@
-// 直接用indexOf进行判断
+// 直接解，用indexOf进行判断。简单，但是时间复杂度高
 var Mysearch = function (nums, target) {
   return nums.indexOf(target);
 };
