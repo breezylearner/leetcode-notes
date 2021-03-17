@@ -29,3 +29,27 @@ var inorderTraversal = function (root) {
   return res;
 };
 // 时间复杂度：O(N)  空间复杂度O(N)
+var inorderTraversal2 = function (root) {
+  const res = [];
+  let curr = null;
+  while (root) {
+    if (root.left) {
+      curr = root.left;
+      while (curr.right && curr.right !== root) {
+        curr = curr.right;
+      }
+      if (!curr.right) {
+        curr.right = root;
+        root = root.left;
+      } else {
+        res.push(root.val);
+        curr.right = null;
+        root = root.right;
+      }
+    } else {
+      res.push(root.val);
+      root = root.right;
+    }
+  }
+  return res;
+};
